@@ -34,152 +34,53 @@ svg {
 path {
     fill: none;
     stroke: #ff1744;
-    stroke-width: 1.35;
+    stroke-width: 1.25;
     stroke-linecap: round;
+    stroke-linejoin: round;
 }
 
+/* DIŞ ÇİZGİ */
 .outline {
     stroke-width: 2;
     stroke-dasharray: 1100;
     stroke-dashoffset: 1100;
-    animation: draw 3s ease forwards;
+    animation: outlineDraw 3s ease forwards;
 }
 
+/* İÇ MERİDYENLER */
 .meridian {
     stroke-dasharray: 500;
     stroke-dashoffset: 500;
-    animation: draw 1.2s ease forwards;
+    animation: lineDraw 1.15s ease forwards;
 }
 
-/* Çizgiler çok sık ve sırayla */
-.meridian:nth-of-type(2)  { animation-delay: 2.7s; }
-.meridian:nth-of-type(3)  { animation-delay: 2.78s; }
-.meridian:nth-of-type(4)  { animation-delay: 2.86s; }
-.meridian:nth-of-type(5)  { animation-delay: 2.94s; }
-.meridian:nth-of-type(6)  { animation-delay: 3.02s; }
-.meridian:nth-of-type(7)  { animation-delay: 3.10s; }
-.meridian:nth-of-type(8)  { animation-delay: 3.18s; }
-.meridian:nth-of-type(9)  { animation-delay: 3.26s; }
-.meridian:nth-of-type(10) { animation-delay: 3.34s; }
-.meridian:nth-of-type(11) { animation-delay: 3.42s; }
-.meridian:nth-of-type(12) { animation-delay: 3.50s; }
-.meridian:nth-of-type(13) { animation-delay: 3.58s; }
-.meridian:nth-of-type(14) { animation-delay: 3.66s; }
-.meridian:nth-of-type(15) { animation-delay: 3.74s; }
-.meridian:nth-of-type(16) { animation-delay: 3.82s; }
-.meridian:nth-of-type(17) { animation-delay: 3.90s; }
-.meridian:nth-of-type(18) { animation-delay: 3.98s; }
-.meridian:nth-of-type(19) { animation-delay: 4.06s; }
-.meridian:nth-of-type(20) { animation-delay: 4.14s; }
-.meridian:nth-of-type(21) { animation-delay: 4.22s; }
-.meridian:nth-of-type(22) { animation-delay: 4.30s; }
-.meridian:nth-of-type(23) { animation-delay: 4.38s; }
-.meridian:nth-of-type(24) { animation-delay: 4.46s; }
-.meridian:nth-of-type(25) { animation-delay: 4.54s; }
-.meridian:nth-of-type(26) { animation-delay: 4.62s; }
-.meridian:nth-of-type(27) { animation-delay: 4.70s; }
-.meridian:nth-of-type(28) { animation-delay: 4.78s; }
-.meridian:nth-of-type(29) { animation-delay: 4.86s; }
-.meridian:nth-of-type(30) { animation-delay: 4.94s; }
-.meridian:nth-of-type(31) { animation-delay: 5.02s; }
-.meridian:nth-of-type(32) { animation-delay: 5.10s; }
-.meridian:nth-of-type(33) { animation-delay: 5.18s; }
-.meridian:nth-of-type(34) { animation-delay: 5.26s; }
-.meridian:nth-of-type(35) { animation-delay: 5.34s; }
-.meridian:nth-of-type(36) { animation-delay: 5.42s; }
-.meridian:nth-of-type(37) { animation-delay: 5.50s; }
-.meridian:nth-of-type(38) { animation-delay: 5.58s; }
-.meridian:nth-of-type(39) { animation-delay: 5.66s; }
-.meridian:nth-of-type(40) { animation-delay: 5.74s; }
-.meridian:nth-of-type(41) { animation-delay: 5.82s; }
-.meridian:nth-of-type(42) { animation-delay: 5.90s; }
-.meridian:nth-of-type(43) { animation-delay: 5.98s; }
-.meridian:nth-of-type(44) { animation-delay: 6.06s; }
-.meridian:nth-of-type(45) { animation-delay: 6.14s; }
-.meridian:nth-of-type(46) { animation-delay: 6.22s; }
-.meridian:nth-of-type(47) { animation-delay: 6.30s; }
-.meridian:nth-of-type(48) { animation-delay: 6.38s; }
-.meridian:nth-of-type(49) { animation-delay: 6.46s; }
-.meridian:nth-of-type(50) { animation-delay: 6.54s; }
-.meridian:nth-of-type(51) { animation-delay: 6.62s; }
+/* SIRAYLA OLUŞUM */
+.meridian { animation-delay: 3s; }
 
-@keyframes draw {
-    to {
-        stroke-dashoffset: 0;
-    }
-}
-</style>
-</head>
-
-<body>
-
-<div class="heart">
-
-<svg viewBox="0 0 320 290"
-     xmlns="http://www.w3.org/2000/svg">
-
-<!-- DIŞ KALP -->
-<path class="outline"
-d="
-M160 270
-C145 255 35 185 35 105
-C35 55 70 25 112 25
-C135 25 153 38 160 58
-C167 38 185 25 208 25
-C250 25 285 55 285 105
-C285 185 175 255 160 270
-Z
-"/>
-
-<!--
-  MERİDYENLER
-  Her çizgi üstten başlayıp
-  alt uçta 160,270 noktasına gelir.
--->
-
-<path class="meridian" d="M42 105 C43 160 80 205 160 270"/>
-<path class="meridian" d="M47 88 C48 155 84 205 160 270"/>
-<path class="meridian" d="M52 75 C55 150 89 208 160 270"/>
-<path class="meridian" d="M57 65 C61 148 94 210 160 270"/>
-<path class="meridian" d="M62 57 C68 145 99 212 160 270"/>
-<path class="meridian" d="M68 50 C75 143 105 214 160 270"/>
-<path class="meridian" d="M74 44 C82 142 111 216 160 270"/>
-<path class="meridian" d="M80 39 C89 140 117 218 160 270"/>
-<path class="meridian" d="M87 35 C96 138 123 220 160 270"/>
-<path class="meridian" d="M94 31 C103 136 130 222 160 270"/>
-<path class="meridian" d="M101 28 C111 134 137 224 160 270"/>
-<path class="meridian" d="M108 26 C119 132 143 226 160 270"/>
-<path class="meridian" d="M115 25 C127 130 149 228 160 270"/>
-<path class="meridian" d="M122 27 C134 130 154 230 160 270"/>
-<path class="meridian" d="M129 31 C141 132 158 232 160 270"/>
-<path class="meridian" d="M136 38 C147 134 160 234 160 270"/>
-<path class="meridian" d="M143 48 C151 137 161 236 160 270"/>
-
-<!-- ORTA -->
-<path class="meridian" d="M160 58 C160 120 160 195 160 270"/>
-
-<!-- SAĞ TARAF -->
-<path class="meridian" d="M177 48 C169 137 159 236 160 270"/>
-<path class="meridian" d="M184 38 C173 134 160 234 160 270"/>
-<path class="meridian" d="M191 31 C179 132 162 232 160 270"/>
-<path class="meridian" d="M198 27 C186 130 166 230 160 270"/>
-<path class="meridian" d="M205 25 C193 130 171 228 160 270"/>
-<path class="meridian" d="M212 26 C201 132 177 226 160 270"/>
-<path class="meridian" d="M219 28 C209 134 183 224 160 270"/>
-<path class="meridian" d="M226 31 C217 136 190 222 160 270"/>
-<path class="meridian" d="M233 35 C224 138 197 220 160 270"/>
-<path class="meridian" d="M240 39 C231 140 203 218 160 270"/>
-<path class="meridian" d="M246 44 C238 142 209 216 160 270"/>
-<path class="meridian" d="M252 50 C245 143 215 214 160 270"/>
-<path class="meridian" d="M258 57 C252 145 221 212 160 270"/>
-<path class="meridian" d="M263 65 C259 148 226 210 160 270"/>
-<path class="meridian" d="M268 75 C265 150 231 208 160 270"/>
-<path class="meridian" d="M273 88 C272 155 236 205 160 270"/>
-<path class="meridian" d="M278 105 C277 160 240 205 160 270"/>
-
-</svg>
-
-</div>
-
-</body>
-</html>
+.m1  { animation-delay: 3.00s; }
+.m2  { animation-delay: 3.07s; }
+.m3  { animation-delay: 3.14s; }
+.m4  { animation-delay: 3.21s; }
+.m5  { animation-delay: 3.28s; }
+.m6  { animation-delay: 3.35s; }
+.m7  { animation-delay: 3.42s; }
+.m8  { animation-delay: 3.49s; }
+.m9  { animation-delay: 3.56s; }
+.m10 { animation-delay: 3.63s; }
+.m11 { animation-delay: 3.70s; }
+.m12 { animation-delay: 3.77s; }
+.m13 { animation-delay: 3.84s; }
+.m14 { animation-delay: 3.91s; }
+.m15 { animation-delay: 3.98s; }
+.m16 { animation-delay: 4.05s; }
+.m17 { animation-delay: 4.12s; }
+.m18 { animation-delay: 4.19s; }
+.m19 { animation-delay: 4.26s; }
+.m20 { animation-delay: 4.33s; }
+.m21 { animation-delay: 4.40s; }
+.m22 { animation-delay: 4.47s; }
+.m23 { animation-delay: 4.54s; }
+.m24 { animation-delay: 4.61s; }
+.m25 { animation-delay: 4.68s; }
+.m26 { animation-delay: 4.75s; }
+.m27
