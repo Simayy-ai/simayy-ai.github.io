@@ -25,7 +25,6 @@ body {
     height: 290px;
 }
 
-/* BÜTÜN ÇİZGİLER */
 svg {
     width: 320px;
     height: 290px;
@@ -40,55 +39,58 @@ path {
     stroke-linejoin: round;
 }
 
-/* DIŞ KALP */
 .outline {
     stroke-width: 2;
     stroke-dasharray: 1100;
     stroke-dashoffset: 1100;
-    animation: draw 3s ease forwards;
+    animation: outline 3s ease forwards;
 }
 
-/* MERİDYEN ÇİZGİLERİ */
 .meridian {
     stroke-dasharray: 500;
     stroke-dashoffset: 500;
-    animation: drawMeridian 1.5s ease forwards;
+    animation: draw 1.3s ease forwards;
 }
 
-/* Çizgiler sırayla oluşsun */
+/* Soldan sağa */
 .m1  { animation-delay: 2.8s; }
-.m2  { animation-delay: 2.95s; }
-.m3  { animation-delay: 3.1s; }
-.m4  { animation-delay: 3.25s; }
-.m5  { animation-delay: 3.4s; }
-.m6  { animation-delay: 3.55s; }
-.m7  { animation-delay: 3.7s; }
-.m8  { animation-delay: 3.85s; }
-.m9  { animation-delay: 4s; }
-.m10 { animation-delay: 4.15s; }
-.m11 { animation-delay: 4.3s; }
-.m12 { animation-delay: 4.45s; }
-.m13 { animation-delay: 4.6s; }
-.m14 { animation-delay: 4.75s; }
-.m15 { animation-delay: 4.9s; }
-.m16 { animation-delay: 5.05s; }
-.m17 { animation-delay: 5.2s; }
-.m18 { animation-delay: 5.35s; }
-.m19 { animation-delay: 5.5s; }
-.m20 { animation-delay: 5.65s; }
-.m21 { animation-delay: 5.8s; }
-.m22 { animation-delay: 5.95s; }
-.m23 { animation-delay: 6.1s; }
-.m24 { animation-delay: 6.25s; }
-.m25 { animation-delay: 6.4s; }
+.m2  { animation-delay: 2.9s; }
+.m3  { animation-delay: 3.0s; }
+.m4  { animation-delay: 3.1s; }
+.m5  { animation-delay: 3.2s; }
+.m6  { animation-delay: 3.3s; }
+.m7  { animation-delay: 3.4s; }
+.m8  { animation-delay: 3.5s; }
+.m9  { animation-delay: 3.6s; }
+.m10 { animation-delay: 3.7s; }
+.m11 { animation-delay: 3.8s; }
+.m12 { animation-delay: 3.9s; }
+.m13 { animation-delay: 4.0s; }
+.m14 { animation-delay: 4.1s; }
+.m15 { animation-delay: 4.2s; }
+.m16 { animation-delay: 4.3s; }
+.m17 { animation-delay: 4.4s; }
+.m18 { animation-delay: 4.5s; }
+.m19 { animation-delay: 4.6s; }
+.m20 { animation-delay: 4.7s; }
+.m21 { animation-delay: 4.8s; }
+.m22 { animation-delay: 4.9s; }
+.m23 { animation-delay: 5.0s; }
+.m24 { animation-delay: 5.1s; }
+.m25 { animation-delay: 5.2s; }
+.m26 { animation-delay: 5.3s; }
+.m27 { animation-delay: 5.4s; }
+.m28 { animation-delay: 5.5s; }
+.m29 { animation-delay: 5.6s; }
+.m30 { animation-delay: 5.7s; }
 
-@keyframes draw {
+@keyframes outline {
     to {
         stroke-dashoffset: 0;
     }
 }
 
-@keyframes drawMeridian {
+@keyframes draw {
     to {
         stroke-dashoffset: 0;
     }
@@ -103,7 +105,7 @@ path {
 <svg viewBox="0 0 320 290"
      xmlns="http://www.w3.org/2000/svg">
 
-<!-- DIŞ KALP -->
+<!-- DIŞ SINIR -->
 <path class="outline"
 d="
 M160 270
@@ -117,202 +119,49 @@ Z
 "/>
 
 
-<!-- MERİDYEN 1 -->
+<!-- SOL MERİDYENLER -->
+
 <path class="meridian m1"
-d="
-M157 60
-C128 75 91 105 78 145
-C70 178 91 213 135 247
-C146 256 154 264 160 270
-"/>
+d="M111 26 C85 48 65 78 56 110 C50 145 72 185 160 270"/>
 
-<!-- MERİDYEN 2 -->
 <path class="meridian m2"
-d="
-M155 58
-C130 72 104 105 96 143
-C89 180 105 214 138 245
-C148 255 155 264 160 270
-"/>
+d="M116 27 C94 50 79 80 73 113 C68 151 85 191 160 270"/>
 
-<!-- MERİDYEN 3 -->
 <path class="meridian m3"
-d="
-M153 55
-C133 72 116 105 112 143
-C108 180 119 214 141 244
-C150 255 156 264 160 270
-"/>
+d="M121 29 C103 52 92 82 88 116 C84 153 99 194 160 270"/>
 
-<!-- MERİDYEN 4 -->
 <path class="meridian m4"
-d="
-M151 53
-C137 72 128 105 127 143
-C126 181 132 215 145 244
-C151 255 157 265 160 270
-"/>
+d="M126 31 C112 55 103 85 101 118 C99 157 110 198 160 270"/>
 
-<!-- MERİDYEN 5 -->
 <path class="meridian m5"
-d="
-M148 50
-C140 72 138 105 139 143
-C140 181 142 215 149 244
-C153 256 158 265 160 270
-"/>
+d="M131 34 C120 58 114 88 113 121 C113 160 120 202 160 270"/>
 
-<!-- MERİDYEN 6 -->
 <path class="meridian m6"
-d="
-M145 48
-C142 72 145 108 146 145
-C147 181 148 215 153 245
-C156 256 159 265 160 270
-"/>
+d="M136 38 C128 61 125 91 125 124 C126 163 130 205 160 270"/>
 
-<!-- MERİDYEN 7 -->
 <path class="meridian m7"
-d="
-M141 45
-C143 72 150 108 151 145
-C152 182 153 216 156 246
-C158 257 159 266 160 270
-"/>
+d="M141 43 C136 65 135 94 136 128 C138 166 140 209 160 270"/>
 
-<!-- MERİDYEN 8 -->
 <path class="meridian m8"
-d="
-M137 43
-C143 72 154 108 156 145
-C157 183 158 216 159 246
-C160 257 160 266 160 270
-"/>
+d="M146 48 C143 70 144 98 146 131 C149 170 149 214 160 270"/>
 
-<!-- MERİDYEN 9 -->
 <path class="meridian m9"
-d="
-M132 40
-C143 70 157 108 159 145
-C160 182 160 216 160 270
-"/>
+d="M151 53 C150 75 151 102 153 135 C156 175 157 219 160 270"/>
 
-<!-- MERİDYEN 10 - ORTA -->
+
+<!-- ORTA -->
+
 <path class="meridian m10"
-d="
-M160 58
-C160 95 160 130 160 165
-C160 205 160 240 160 270
-"/>
+d="M160 58 C160 88 160 115 160 145 C160 185 160 225 160 270"/>
 
-<!-- MERİDYEN 11 -->
+
+<!-- SAĞ MERİDYENLER -->
+
 <path class="meridian m11"
-d="
-M188 40
-C177 70 163 108 161 145
-C160 182 160 216 160 270
-"/>
+d="M169 53 C170 75 169 102 167 135 C164 175 163 219 160 270"/>
 
-<!-- MERİDYEN 12 -->
 <path class="meridian m12"
-d="
-M183 43
-C177 72 166 108 164 145
-C163 183 162 216 161 246
-C160 257 160 266 160 270
-"/>
+d="M174 48 C177 70 176 98 174 131 C171 170 171 214 160 270"/>
 
-<!-- MERİDYEN 13 -->
 <path class="meridian m13"
-d="
-M179 45
-C177 72 170 108 169 145
-C168 182 167 216 164 246
-C162 257 161 266 160 270
-"/>
-
-<!-- MERİDYEN 14 -->
-<path class="meridian m14"
-d="
-M175 48
-C178 72 175 108 174 145
-C173 181 172 215 167 245
-C164 256 161 265 160 270
-"/>
-
-<!-- MERİDYEN 15 -->
-<path class="meridian m15"
-d="
-M172 50
-C180 72 182 105 181 143
-C180 181 178 215 171 244
-C167 256 162 265 160 270
-"/>
-
-<!-- MERİDYEN 16 -->
-<path class="meridian m16"
-d="
-M169 53
-C183 72 192 105 193 143
-C194 181 188 215 175 244
-C169 255 163 265 160 270
-"/>
-
-<!-- MERİDYEN 17 -->
-<path class="meridian m17"
-d="
-M167 55
-C187 72 204 105 208 143
-C212 180 201 214 179 244
-C170 255 164 264 160 270
-"/>
-
-<!-- MERİDYEN 18 -->
-<path class="meridian m18"
-d="
-M165 58
-C190 72 216 105 224 143
-C231 180 215 214 182 245
-C172 255 165 264 160 270
-"/>
-
-<!-- MERİDYEN 19 -->
-<path class="meridian m19"
-d="
-M163 60
-C192 75 229 105 242 145
-C250 178 229 213 185 247
-C174 256 166 264 160 270
-"/>
-
-<!-- EK DIŞ MERİDYENLER -->
-<path class="meridian m20"
-d="
-M160 58
-C190 75 245 105 260 145
-C269 178 244 214 190 250
-C178 258 168 266 160 270
-"/>
-
-<path class="meridian m21"
-d="
-M160 58
-C198 75 258 105 272 145
-C278 178 251 213 195 250
-C182 258 170 266 160 270
-"/>
-
-<path class="meridian m22"
-d="
-M160 58
-C205 76 270 107 280 145
-C285 178 257 211 201 250
-C187 259 174 267 160 270
-"/>
-
-</svg>
-
-</div>
-
-</body>
-</html>
+d="M179
