@@ -22,29 +22,27 @@ body {
 }
 
 svg {
-    width: 90vw;
-    height: 90vw;
-    max-width: 600px;
-    max-height: 600px;
+    width: 94vw;
+    height: 94vw;
+    max-width: 650px;
+    max-height: 650px;
 }
 
 #heart {
     fill: none;
     stroke: red;
-    stroke-width: 0.7;
+    stroke-width: 0.45;
     stroke-linecap: round;
     stroke-linejoin: round;
 }
 
-#love {
-    fill: white;
-    font-family: Arial, sans-serif;
-    font-size: 2px;
-    text-anchor: middle;
+#emoji {
     opacity: 0;
+    font-size: 2.2px;
+    text-anchor: middle;
 }
 
-@keyframes appear {
+@keyframes showEmoji {
     to {
         opacity: 1;
     }
@@ -54,23 +52,23 @@ svg {
 
 <body>
 
-<svg viewBox="-18 -18 36 36">
+<svg viewBox="-18 -16 36 32">
 
     <path id="heart"></path>
 
-    <text id="love" x="0" y="14">❤️</text>
+    <text id="emoji" x="0" y="13">❤️</text>
 
 </svg>
 
 <script>
 
 const heart = document.getElementById("heart");
-const love = document.getElementById("love");
+const emoji = document.getElementById("emoji");
 
-let points = [];
+const points = [];
+const toplam = 1200;
 
-const toplam = 800;
-
+/* Matematiksel kalp */
 for (let i = 0; i <= toplam; i++) {
 
     const t = (i / toplam) * Math.PI * 2;
@@ -83,7 +81,9 @@ for (let i = 0; i <= toplam; i++) {
         - 2 * Math.cos(3 * t)
         - Math.cos(4 * t);
 
-    points.push(`${x / 20},${-y / 20}`);
+    points.push(
+        `${x * 0.95},${-y * 0.95}`
+    );
 }
 
 heart.setAttribute(
@@ -91,14 +91,16 @@ heart.setAttribute(
     "M " + points.join(" L ")
 );
 
-const length = heart.getTotalLength();
+/* Çizginin toplam uzunluğu */
+const uzunluk = heart.getTotalLength();
 
-heart.style.strokeDasharray = length;
-heart.style.strokeDashoffset = length;
+heart.style.strokeDasharray = uzunluk;
+heart.style.strokeDashoffset = uzunluk;
 
+/* Kalbin çizilmesi */
 heart.animate(
     [
-        { strokeDashoffset: length },
+        { strokeDashoffset: uzunluk },
         { strokeDashoffset: 0 }
     ],
     {
@@ -108,8 +110,9 @@ heart.animate(
     }
 );
 
+/* 5 saniye sonra emoji */
 setTimeout(() => {
-    love.style.animation = "appear 2s forwards";
+    emoji.style.animation = "showEmoji 2s forwards";
 }, 5000);
 
 </script>
