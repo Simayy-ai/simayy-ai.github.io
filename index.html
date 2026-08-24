@@ -3,119 +3,145 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Kalp ❤️</title>
+<title>Kalp</title>
 
 <style>
-html, body {
-    margin: 0;
-    width: 100%;
-    height: 100%;
-    background: black;
-    overflow: hidden;
-}
-
-body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-svg {
-    width: 94vw;
-    height: 94vw;
-    max-width: 650px;
-    max-height: 650px;
-}
-
-#heart {
-    fill: none;
-    stroke: red;
-    stroke-width: 0.45;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-}
-
-#emoji {
-    opacity: 0;
-    font-size: 2.2px;
-    text-anchor: middle;
-}
-
-@keyframes showEmoji {
-    to {
-        opacity: 1;
+    * {
+        box-sizing: border-box;
     }
-}
+
+    body {
+        margin: 0;
+        min-height: 100vh;
+        background: #000;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+    }
+
+    .heart {
+        position: relative;
+        width: 320px;
+        height: 290px;
+    }
+
+    /* Kalbin dış ince çizgisi */
+    .outline {
+        position: absolute;
+        inset: 0;
+        z-index: 2;
+        pointer-events: none;
+    }
+
+    .outline path {
+        fill: none;
+        stroke: #ff1744;
+        stroke-width: 2;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+
+        stroke-dasharray: 1200;
+        stroke-dashoffset: 1200;
+
+        animation: drawOutline 4s ease forwards;
+    }
+
+    /* İç çizgiler */
+    .inside {
+        position: absolute;
+        inset: 0;
+        z-index: 1;
+        overflow: hidden;
+    }
+
+    .line {
+        position: absolute;
+        height: 2px;
+        background: #ff1744;
+        left: 50%;
+        transform: translateX(-50%) scaleX(0);
+        transform-origin: center;
+
+        animation: drawLine 1.5s ease forwards;
+    }
+
+    .l1  { top: 72px;  width: 65px;  animation-delay: 1.0s; }
+    .l2  { top: 82px;  width: 115px; animation-delay: 1.15s; }
+    .l3  { top: 92px;  width: 155px; animation-delay: 1.3s; }
+    .l4  { top: 102px; width: 185px; animation-delay: 1.45s; }
+    .l5  { top: 112px; width: 210px; animation-delay: 1.6s; }
+    .l6  { top: 122px; width: 230px; animation-delay: 1.75s; }
+    .l7  { top: 132px; width: 245px; animation-delay: 1.9s; }
+    .l8  { top: 142px; width: 255px; animation-delay: 2.05s; }
+    .l9  { top: 152px; width: 260px; animation-delay: 2.2s; }
+    .l10 { top: 162px; width: 255px; animation-delay: 2.35s; }
+    .l11 { top: 172px; width: 245px; animation-delay: 2.5s; }
+    .l12 { top: 182px; width: 230px; animation-delay: 2.65s; }
+    .l13 { top: 192px; width: 210px; animation-delay: 2.8s; }
+    .l14 { top: 202px; width: 185px; animation-delay: 2.95s; }
+    .l15 { top: 212px; width: 155px; animation-delay: 3.1s; }
+    .l16 { top: 222px; width: 120px; animation-delay: 3.25s; }
+    .l17 { top: 232px; width: 80px;  animation-delay: 3.4s; }
+    .l18 { top: 242px; width: 40px;  animation-delay: 3.55s; }
+
+    @keyframes drawOutline {
+        to {
+            stroke-dashoffset: 0;
+        }
+    }
+
+    @keyframes drawLine {
+        to {
+            transform: translateX(-50%) scaleX(1);
+        }
+    }
 </style>
 </head>
 
 <body>
 
-<svg viewBox="-18 -16 36 32">
+<div class="heart">
 
-    <path id="heart"></path>
+    <svg class="outline"
+         viewBox="0 0 320 290"
+         xmlns="http://www.w3.org/2000/svg">
 
-    <text id="emoji" x="0" y="13">❤️</text>
+        <path d="
+        M160 270
+        C145 255 35 185 35 105
+        C35 55 70 25 112 25
+        C135 25 153 38 160 58
+        C167 38 185 25 208 25
+        C250 25 285 55 285 105
+        C285 185 175 255 160 270
+        Z
+        "/>
 
-</svg>
+    </svg>
 
-<script>
+    <div class="inside">
+        <div class="line l1"></div>
+        <div class="line l2"></div>
+        <div class="line l3"></div>
+        <div class="line l4"></div>
+        <div class="line l5"></div>
+        <div class="line l6"></div>
+        <div class="line l7"></div>
+        <div class="line l8"></div>
+        <div class="line l9"></div>
+        <div class="line l10"></div>
+        <div class="line l11"></div>
+        <div class="line l12"></div>
+        <div class="line l13"></div>
+        <div class="line l14"></div>
+        <div class="line l15"></div>
+        <div class="line l16"></div>
+        <div class="line l17"></div>
+        <div class="line l18"></div>
+    </div>
 
-const heart = document.getElementById("heart");
-const emoji = document.getElementById("emoji");
-
-const points = [];
-const toplam = 1200;
-
-/* Matematiksel kalp */
-for (let i = 0; i <= toplam; i++) {
-
-    const t = (i / toplam) * Math.PI * 2;
-
-    const x = 16 * Math.pow(Math.sin(t), 3);
-
-    const y =
-        13 * Math.cos(t)
-        - 5 * Math.cos(2 * t)
-        - 2 * Math.cos(3 * t)
-        - Math.cos(4 * t);
-
-    points.push(
-        `${x * 0.95},${-y * 0.95}`
-    );
-}
-
-heart.setAttribute(
-    "d",
-    "M " + points.join(" L ")
-);
-
-/* Çizginin toplam uzunluğu */
-const uzunluk = heart.getTotalLength();
-
-heart.style.strokeDasharray = uzunluk;
-heart.style.strokeDashoffset = uzunluk;
-
-/* Kalbin çizilmesi */
-heart.animate(
-    [
-        { strokeDashoffset: uzunluk },
-        { strokeDashoffset: 0 }
-    ],
-    {
-        duration: 5000,
-        easing: "linear",
-        fill: "forwards"
-    }
-);
-
-/* 5 saniye sonra emoji */
-setTimeout(() => {
-    emoji.style.animation = "showEmoji 2s forwards";
-}, 5000);
-
-</script>
+</div>
 
 </body>
 </html>
