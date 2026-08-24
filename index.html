@@ -6,96 +6,163 @@
 <title>Kalp</title>
 
 <style>
-    * {
-        box-sizing: border-box;
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.heart {
+    position: relative;
+    width: 320px;
+    height: 290px;
+}
+
+/* =========================
+   KALBİN DIŞ ÇİZGİSİ
+   ========================= */
+
+.outline {
+    position: absolute;
+    inset: 0;
+    width: 320px;
+    height: 290px;
+    z-index: 5;
+    pointer-events: none;
+}
+
+.outline path {
+    fill: none;
+    stroke: #ff1744;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+
+    stroke-dasharray: 1100;
+    stroke-dashoffset: 1100;
+
+    animation: outlineDraw 3.5s ease forwards;
+}
+
+
+/* =========================
+   DİKEY SÜTUNLAR
+   ========================= */
+
+.columns {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+
+    /*
+       Kalp şeklinin içerisine
+       göre çizgileri kırpıyoruz.
+    */
+    clip-path: path(
+        "M160 270
+         C145 255 35 185 35 105
+         C35 55 70 25 112 25
+         C135 25 153 38 160 58
+         C167 38 185 25 208 25
+         C250 25 285 55 285 105
+         C285 185 175 255 160 270
+         Z"
+    );
+
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+
+    gap: 6px;
+    padding: 0 34px;
+}
+
+/* Her dikey sütun */
+
+.column {
+    width: 2px;
+    height: 250px;
+    background: #ff1744;
+
+    transform-origin: top;
+    transform: scaleY(0);
+
+    animation: columnDraw 1.8s ease forwards;
+}
+
+
+/* Soldan sağa sırayla */
+
+.column:nth-child(1)  { animation-delay: 3.4s; }
+.column:nth-child(2)  { animation-delay: 3.5s; }
+.column:nth-child(3)  { animation-delay: 3.6s; }
+.column:nth-child(4)  { animation-delay: 3.7s; }
+.column:nth-child(5)  { animation-delay: 3.8s; }
+.column:nth-child(6)  { animation-delay: 3.9s; }
+.column:nth-child(7)  { animation-delay: 4.0s; }
+.column:nth-child(8)  { animation-delay: 4.1s; }
+.column:nth-child(9)  { animation-delay: 4.2s; }
+.column:nth-child(10) { animation-delay: 4.3s; }
+.column:nth-child(11) { animation-delay: 4.4s; }
+.column:nth-child(12) { animation-delay: 4.5s; }
+.column:nth-child(13) { animation-delay: 4.6s; }
+.column:nth-child(14) { animation-delay: 4.7s; }
+.column:nth-child(15) { animation-delay: 4.8s; }
+.column:nth-child(16) { animation-delay: 4.9s; }
+.column:nth-child(17) { animation-delay: 5.0s; }
+.column:nth-child(18) { animation-delay: 5.1s; }
+.column:nth-child(19) { animation-delay: 5.2s; }
+.column:nth-child(20) { animation-delay: 5.3s; }
+.column:nth-child(21) { animation-delay: 5.4s; }
+.column:nth-child(22) { animation-delay: 5.5s; }
+.column:nth-child(23) { animation-delay: 5.6s; }
+.column:nth-child(24) { animation-delay: 5.7s; }
+.column:nth-child(25) { animation-delay: 5.8s; }
+.column:nth-child(26) { animation-delay: 5.9s; }
+.column:nth-child(27) { animation-delay: 6.0s; }
+.column:nth-child(28) { animation-delay: 6.1s; }
+.column:nth-child(29) { animation-delay: 6.2s; }
+.column:nth-child(30) { animation-delay: 6.3s; }
+.column:nth-child(31) { animation-delay: 6.4s; }
+.column:nth-child(32) { animation-delay: 6.5s; }
+.column:nth-child(33) { animation-delay: 6.6s; }
+.column:nth-child(34) { animation-delay: 6.7s; }
+.column:nth-child(35) { animation-delay: 6.8s; }
+.column:nth-child(36) { animation-delay: 6.9s; }
+.column:nth-child(37) { animation-delay: 7.0s; }
+.column:nth-child(38) { animation-delay: 7.1s; }
+.column:nth-child(39) { animation-delay: 7.2s; }
+.column:nth-child(40) { animation-delay: 7.3s; }
+
+
+/* =========================
+   ANİMASYONLAR
+   ========================= */
+
+@keyframes outlineDraw {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes columnDraw {
+    from {
+        transform: scaleY(0);
     }
 
-    body {
-        margin: 0;
-        min-height: 100vh;
-        background: #000;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        overflow: hidden;
+    to {
+        transform: scaleY(1);
     }
+}
 
-    .heart {
-        position: relative;
-        width: 320px;
-        height: 290px;
-    }
-
-    /* Kalbin dış ince çizgisi */
-    .outline {
-        position: absolute;
-        inset: 0;
-        z-index: 2;
-        pointer-events: none;
-    }
-
-    .outline path {
-        fill: none;
-        stroke: #ff1744;
-        stroke-width: 2;
-        stroke-linecap: round;
-        stroke-linejoin: round;
-
-        stroke-dasharray: 1200;
-        stroke-dashoffset: 1200;
-
-        animation: drawOutline 4s ease forwards;
-    }
-
-    /* İç çizgiler */
-    .inside {
-        position: absolute;
-        inset: 0;
-        z-index: 1;
-        overflow: hidden;
-    }
-
-    .line {
-        position: absolute;
-        height: 2px;
-        background: #ff1744;
-        left: 50%;
-        transform: translateX(-50%) scaleX(0);
-        transform-origin: center;
-
-        animation: drawLine 1.5s ease forwards;
-    }
-
-    .l1  { top: 72px;  width: 65px;  animation-delay: 1.0s; }
-    .l2  { top: 82px;  width: 115px; animation-delay: 1.15s; }
-    .l3  { top: 92px;  width: 155px; animation-delay: 1.3s; }
-    .l4  { top: 102px; width: 185px; animation-delay: 1.45s; }
-    .l5  { top: 112px; width: 210px; animation-delay: 1.6s; }
-    .l6  { top: 122px; width: 230px; animation-delay: 1.75s; }
-    .l7  { top: 132px; width: 245px; animation-delay: 1.9s; }
-    .l8  { top: 142px; width: 255px; animation-delay: 2.05s; }
-    .l9  { top: 152px; width: 260px; animation-delay: 2.2s; }
-    .l10 { top: 162px; width: 255px; animation-delay: 2.35s; }
-    .l11 { top: 172px; width: 245px; animation-delay: 2.5s; }
-    .l12 { top: 182px; width: 230px; animation-delay: 2.65s; }
-    .l13 { top: 192px; width: 210px; animation-delay: 2.8s; }
-    .l14 { top: 202px; width: 185px; animation-delay: 2.95s; }
-    .l15 { top: 212px; width: 155px; animation-delay: 3.1s; }
-    .l16 { top: 222px; width: 120px; animation-delay: 3.25s; }
-    .l17 { top: 232px; width: 80px;  animation-delay: 3.4s; }
-    .l18 { top: 242px; width: 40px;  animation-delay: 3.55s; }
-
-    @keyframes drawOutline {
-        to {
-            stroke-dashoffset: 0;
-        }
-    }
-
-    @keyframes drawLine {
-        to {
-            transform: translateX(-50%) scaleX(1);
-        }
-    }
 </style>
 </head>
 
@@ -103,9 +170,11 @@
 
 <div class="heart">
 
-    <svg class="outline"
-         viewBox="0 0 320 290"
-         xmlns="http://www.w3.org/2000/svg">
+    <!-- DIŞ KALP -->
+    <svg
+        class="outline"
+        viewBox="0 0 320 290"
+        xmlns="http://www.w3.org/2000/svg">
 
         <path d="
         M160 270
@@ -120,25 +189,54 @@
 
     </svg>
 
-    <div class="inside">
-        <div class="line l1"></div>
-        <div class="line l2"></div>
-        <div class="line l3"></div>
-        <div class="line l4"></div>
-        <div class="line l5"></div>
-        <div class="line l6"></div>
-        <div class="line l7"></div>
-        <div class="line l8"></div>
-        <div class="line l9"></div>
-        <div class="line l10"></div>
-        <div class="line l11"></div>
-        <div class="line l12"></div>
-        <div class="line l13"></div>
-        <div class="line l14"></div>
-        <div class="line l15"></div>
-        <div class="line l16"></div>
-        <div class="line l17"></div>
-        <div class="line l18"></div>
+
+    <!-- DİKEY SÜTUN ÇİZGİLERİ -->
+    <div class="columns">
+
+        <div class="column"></div>
+        <div class="column"></div>
+        <div class="column"></div>
+        <div class="column"></div>
+        <div class="column"></div>
+        <div class="column"></div>
+        <div class="column"></div>
+        <div class="column"></div>
+        <div class="column"></div>
+        <div class="column"></div>
+
+        <div class="column"></div>
+        <div class="column"></div>
+        <div class="column"></div>
+        <div class="column"></div>
+        <div class="column"></div>
+        <div class="column"></div>
+        <div class="column"></div>
+        <div class="column"></div>
+        <div class="column"></div>
+        <div class="column"></div>
+
+        <div class="column"></div>
+        <div class="column"></div>
+        <div class="column"></div>
+        <div class="column"></div>
+        <div class="column"></div>
+        <div class="column"></div>
+        <div class="column"></div>
+        <div class="column"></div>
+        <div class="column"></div>
+        <div class="column"></div>
+
+        <div class="column"></div>
+        <div class="column"></div>
+        <div class="column"></div>
+        <div class="column"></div>
+        <div class="column"></div>
+        <div class="column"></div>
+        <div class="column"></div>
+        <div class="column"></div>
+        <div class="column"></div>
+        <div class="column"></div>
+
     </div>
 
 </div>
